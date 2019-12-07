@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   ToastAndroid,
+  Dimensions
 } from 'react-native';
 import { Colors, ScreenDimension } from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
@@ -16,11 +17,29 @@ import { getPropertyDetail } from '../services/DataService';
 import ShareData from '../utilities/ShareData';
 import { getImagePath } from '../utilities/CommonHelper';
 import Images from '../utilities/ImageConstants';
+import { Overlay } from 'react-native-elements';
+import { LineChart } from 'react-native-chart-kit'
+import { chartData } from '../assets/chartData';
+
+const chartConfig = {
+  backgroundColor: '#022173',
+  backgroundGradientFrom: '#022173',
+  backgroundGradientTo: '#1b3fa0',
+  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+}
+
+const graphStyle = {
+  margin: 5,
+  borderRadius: 5
+}
+
+const width = Dimensions.get('window').width
+const height = 250
 
 export class HouseDetailScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: null, iconName: 'plus-circle' };
+    this.state = { data: null, iconName: 'plus-circle', showChart: false };
   }
 
   async componentDidMount() {
@@ -91,7 +110,7 @@ export class HouseDetailScreen extends Component {
                 {this.state.data !== null ? this.state.data.productName : ''}
               </Text>
               <View style={styles.buttonContainView}>
-                <TouchableOpacity
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('CardDetail', { 'detail': this.state.data })}
                   style={[styles.button, { backgroundColor: '#F29335' }]}>
                   <View style={styles.buttonInsideView}>
                     <Icon
@@ -105,7 +124,7 @@ export class HouseDetailScreen extends Component {
                     </Text>
                   </View>
                 </TouchableOpacity>
-                <TouchableOpacity
+                <TouchableOpacity onPress={() => this.setState({ showChart: true })}
                   style={[styles.button, { backgroundColor: '#106cc8' }]}>
                   <View style={styles.buttonInsideView}>
                     <Icon
@@ -228,6 +247,22 @@ export class HouseDetailScreen extends Component {
             />
           </TouchableOpacity>
         </View>
+        <Overlay width="auto"
+          height="auto"
+          isVisible={this.state.showChart}
+          windowBackgroundColor="rgba(255, 255, 255, .5)"
+          overlayBackgroundColor="transparent"
+          overlayStyle={{ borderWidth: 0 }}
+          onBackdropPress={() => this.setState({ showChart: false })}>
+          <LineChart
+            data={chartData}
+            width={width}
+            height={height}
+            chartConfig={chartConfig}
+            bezier
+            style={graphStyle}
+          />
+        </Overlay>
       </View >
     );
   }
