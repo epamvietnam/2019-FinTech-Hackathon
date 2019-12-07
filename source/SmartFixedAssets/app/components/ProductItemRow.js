@@ -30,7 +30,7 @@ export class ProductItemRow extends Component {
                         {this.props.product.address}
                     </Text>
                     <Text style={{ fontSize: 25, color: Colors.primary }}>
-                        {this.props.product.price}
+                        ${this.props.product.price}
                     </Text>
                 </View>
             </View>

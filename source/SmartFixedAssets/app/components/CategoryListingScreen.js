@@ -31,7 +31,7 @@ export class CategoryListingScreen extends Component {
                     />
                 </TouchableOpacity>
             </View>
-            <Text style={{ fontSize: 30, marginVertical: 20 }}>Properties</Text>
+            <Text style={{ fontSize: 30, marginVertical: 20 }}>Real Estate</Text>
         </View>
     }
 
