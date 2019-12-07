@@ -129,7 +129,7 @@ export class HouseDetailScreen extends Component {
                   imageSize={20}
                   readonly
                   startingValue={4}
-                  ratingCount={5}
+                  ratingCount={this.state.data.ratingCount}
                   style={{alignSelf: 'flex-start', marginVertical: 5}}
                 />
                 <Text style={styles.description}>

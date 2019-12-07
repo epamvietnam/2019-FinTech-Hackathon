@@ -4,5 +4,6 @@
     "price": 315000,
     "address": "No. 86 Waterloo Road, Ho Man Tin, Kowloon, Hong Kong",
     "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
-    "image": "require('../assets/House4.jpg')"
+    "image": "require('../assets/House4.jpg')",
+    "rating": 5
 }
