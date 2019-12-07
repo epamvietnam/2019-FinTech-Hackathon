@@ -22,7 +22,7 @@ const DATA = [
   },
 ];
 
-export class CompareAssert extends Component {
+export class CompareAssertScreen extends Component {
   itemSeparator = () => {
     return (
       <View
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CompareAssert;
+export default CompareAssertScreen;

@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 import {Colors} from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
 import {Icon} from 'react-native-elements';
@@ -22,7 +29,7 @@ export class HouseDetailScreen extends Component {
                 }}
               />
               <LinearGradient
-                colors={['transparent', 'rgba(0, 0, 0, 1)']}
+                colors={['transparent', 'transparent', 'white']}
                 style={{
                   position: 'absolute',
                   top: 0,
@@ -226,10 +233,32 @@ export class HouseDetailScreen extends Component {
             </View>
           </View>
         </ScrollView>
+        <LinearGradient
+          colors={['transparent', 'white']}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          style={styles.linearBackIcon}
+        />
+        <LinearGradient
+          start={{x: 1, y: 0}}
+          end={{x: 0, y: 0}}
+          colors={['transparent', 'white']}
+          style={styles.linearAddIcon}
+        />
         <View style={styles.backIcon}>
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
             <Icon
               name="chevron-left"
+              type="font-awesome"
+              color={Colors.primary}
+              size={25}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.addIcon}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('CompareAssert')}>
+            <Icon
+              name="plus-circle"
               type="font-awesome"
               color={Colors.primary}
               size={25}
@@ -250,8 +279,32 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 15,
     top: 15,
-    height: 25,
-    width: 25,
+  },
+  linearBackIcon: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 55,
+    width: 55,
+    transform: [{rotate:45}]
+  },
+  addIcon: {
+    flexDirection: 'row',
+    position: 'absolute',
+    right: 15,
+    top: 15,
+  },
+  linearAddIcon: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: Dimensions.width,
+    right: 0,
+    height: 55,
+    width: 55,
+    transform: [{rotate:-45}]
   },
 });
 

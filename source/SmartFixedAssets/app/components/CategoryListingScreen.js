@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import ProductItemRow from './ProductItemRow';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
@@ -41,10 +41,10 @@ export class CategoryListingScreen extends Component {
                         showsVerticalScrollIndicator={false}
                         data={this.state.data}
                         renderItem={({ item }) => (
-                            <TouchableHighlight
+                            <TouchableOpacity
                                 onPress={() => this.props.navigation.navigate('HouseDetail')}>
                                 <ProductItemRow product={item} />
-                            </TouchableHighlight>
+                            </TouchableOpacity>
                         )}
                         keyExtractor={item => item.id.toString()}
                     />
