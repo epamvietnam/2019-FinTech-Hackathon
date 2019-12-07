@@ -15,6 +15,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { getPropertyDetail } from '../services/DataService';
 import ShareData from '../utilities/ShareData';
 import { getImagePath } from '../utilities/CommonHelper';
+import Images from '../utilities/ImageConstants';
 
 export class HouseDetailScreen extends Component {
   constructor(props) {
@@ -130,7 +131,7 @@ export class HouseDetailScreen extends Component {
                   imageSize={20}
                   readonly
                   startingValue={4}
-                  ratingCount={this.state.data !== null ? this.state.data.ratingCount : 0}
+                  ratingCount={this.state.data !== null ? this.state.data.rating : 0}
                   style={{ alignSelf: 'flex-start', marginVertical: 5 }}
                 />
                 <Text style={styles.description}>
@@ -141,7 +142,7 @@ export class HouseDetailScreen extends Component {
               <View
                 style={styles.listView}>
                 <Image
-                  source={require('../assets/House2.jpg')}
+                  source={Images.House2}
                   style={{
                     borderRadius: 5,
                     flex: 1,
@@ -149,7 +150,7 @@ export class HouseDetailScreen extends Component {
                   }}
                 />
                 <Image
-                  source={require('../assets/House3.jpg')}
+                  source={Images.House3}
                   style={{
                     borderRadius: 5,
                     flex: 1,
@@ -158,7 +159,7 @@ export class HouseDetailScreen extends Component {
                   }}
                 />
                 <Image
-                  source={require('../assets/House4.jpg')}
+                  source={Images.House4}
                   style={{
                     borderRadius: 5,
                     flex: 1,
