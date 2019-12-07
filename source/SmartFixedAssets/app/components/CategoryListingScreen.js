@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
 import ProductItemRow from './ProductItemRow';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
@@ -26,28 +26,31 @@ export class CategoryListingScreen extends Component {
                     style={{
                         margin: 10,
                     }}>
-                    <TouchableOpacity style={{ width: 25, height: 25 }} onPress={() => this.props.navigation.goBack()}>
-                        <View>
+                    <View style={{ width: 25, height: 25 }}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                             <Icon
                                 name="chevron-left"
                                 type="font-awesome"
                                 color={Colors.disable}
                                 size={25}
                             />
-                        </View>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    </View>
                     <Text style={{ fontSize: 30, marginVertical: 20 }}>Properties</Text>
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         data={this.state.data}
                         renderItem={({ item }) => (
-                            <ProductItemRow product={item} />
+                            <TouchableHighlight
+                                onPress={() => this.props.navigation.navigate('HouseDetail')}>
+                                <ProductItemRow product={item} />
+                            </TouchableHighlight>
                         )}
                         keyExtractor={item => item.id.toString()}
                     />
                 </View>
             </ScrollView>
-        );
+        )
     }
 }
 
