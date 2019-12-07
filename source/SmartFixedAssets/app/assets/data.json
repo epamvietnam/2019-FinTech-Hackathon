@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "productName": "Vietnamese House 1",
+        "price": 51,
+        "address": "",
+        "description": null
+    },
+    {
+        "id": 2,
+        "productName": "Vietnamese House 2",
+        "price": 52,
+        "address": "",
+        "description": null
+    },
+    {
+        "id": 3,
+        "productName": "Vietnamese House 3",
+        "price": 53,
+        "address": "",
+        "description": null
+    },
+    {
+        "id": 4,
+        "productName": "Vietnamese House 4",
+        "price": 54,
+        "address": "",
+        "description": null
+    },
+    {
+        "id": 5,
+        "productName": "Vietnamese House 5",
+        "price": 55,
+        "address": "",
+        "description": null
+    }
+]

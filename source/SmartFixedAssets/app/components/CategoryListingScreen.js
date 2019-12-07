@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import ProductItemRow from './ProductItemRow';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
-
-const product = {
-    ProductName: 'ProductName',
-    Address: 'Address',
-    Price: 'Price',
-};
+import { getAllProperties } from '../services/DataService';
 
 export class CategoryListingScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { data: null };
+    }
+
+    async componentDidMount() {
+        let result = await getAllProperties();
+        console.log(result);
+        this.setState((
+            { data: result }
+        ));
+    }
+
     render() {
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -18,21 +26,25 @@ export class CategoryListingScreen extends Component {
                     style={{
                         margin: 10,
                     }}>
-                    <View style={{ width: 25, height: 25 }}>
-                        <Icon
-                            name="chevron-left"
-                            type="font-awesome"
-                            color={Colors.disable}
-                            size={25}
-                        />
-                    </View>
+                    <TouchableOpacity style={{ width: 25, height: 25 }} onPress={() => this.props.navigation.goBack()}>
+                        <View>
+                            <Icon
+                                name="chevron-left"
+                                type="font-awesome"
+                                color={Colors.disable}
+                                size={25}
+                            />
+                        </View>
+                    </TouchableOpacity>
                     <Text style={{ fontSize: 30, marginVertical: 20 }}>Properties</Text>
-                    <ProductItemRow product={product} />
-                    <ProductItemRow product={product} />
-                    <ProductItemRow product={product} />
-                    <ProductItemRow product={product} />
-                    <ProductItemRow product={product} />
-                    <ProductItemRow product={product} />
+                    <FlatList
+                        showsVerticalScrollIndicator={false}
+                        data={this.state.data}
+                        renderItem={({ item }) => (
+                            <ProductItemRow product={item} />
+                        )}
+                        keyExtractor={item => item.id.toString()}
+                    />
                 </View>
             </ScrollView>
         );

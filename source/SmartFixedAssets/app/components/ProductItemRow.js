@@ -24,13 +24,13 @@ export class ProductItemRow extends Component {
                 />
                 <View style={{ flex: 1, marginHorizontal: 20, marginTop: 10 }}>
                     <Text style={{ fontSize: 13, fontWeight: 'bold' }}>
-                        {this.props.product.ProductName}
+                        {this.props.product.productName}
                     </Text>
                     <Text style={{ fontSize: 15, color: Colors.disable }}>
-                        {this.props.product.Address}
+                        {this.props.product.address}
                     </Text>
                     <Text style={{ fontSize: 25, color: Colors.primary }}>
-                        {this.props.product.Price}
+                        {this.props.product.price}
                     </Text>
                 </View>
             </View>
