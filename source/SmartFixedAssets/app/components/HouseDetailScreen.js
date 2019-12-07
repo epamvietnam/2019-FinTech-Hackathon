@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import {Colors} from '../styles/DefaultStyles';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Colors } from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
-import {Icon} from 'react-native-elements';
-import {Rating} from 'react-native-elements';
-import {ScrollView, TouchableHighlight} from 'react-native-gesture-handler';
+import { Icon } from 'react-native-elements';
+import { Rating } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export class HouseDetailScreen extends Component {
   render() {
     return (
       <View>
-        <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1, backgroundColor: Colors.backgroundColor}}>
-            <View style={{flex: 2}}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={{ flex: 1, backgroundColor: Colors.backgroundColor }}>
+            <View style={{ flex: 2 }}>
               <Image
                 source={require('../assets/house.png')}
                 style={{
@@ -164,7 +164,7 @@ export class HouseDetailScreen extends Component {
                   readonly
                   startingValue={4}
                   ratingCount={5}
-                  style={{alignSelf: 'flex-start', marginVertical: 5}}
+                  style={{ alignSelf: 'flex-start', marginVertical: 5 }}
                 />
                 <Text
                   style={{
