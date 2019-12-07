@@ -46,8 +46,8 @@ export class CategoryListingScreen extends Component {
                                 style={{justifyContent: 'center', alignContent: 'center', paddingHorizontal: 10}}
                                 onPress={this.onAdvanceSearchPress}>
                                 <Icon
-                                    name="setting"
-                                    type="AntDesign"
+                                    name="settings-applications"
+                                    type="MaterialIcons"
                                     color={Colors.disable}
                                     size={25}
                                 />
