@@ -15,7 +15,7 @@ export class ProductItemRow extends Component {
                     borderWidth: 0.5,
                 }}>
                 <Image
-                    source={require('../assets/home.jpg')}
+                    source={require('../assets/House1.jpg')}
                     style={{
                         borderRadius: 5,
                         height: 90,

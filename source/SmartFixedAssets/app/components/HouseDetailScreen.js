@@ -21,7 +21,7 @@ export class HouseDetailScreen extends Component {
           <View style={{flex: 1, backgroundColor: Colors.backgroundColor}}>
             <View style={{flex: 2}}>
               <Image
-                source={require('../assets/house.png')}
+                source={require('../assets/House1.jpg')}
                 style={{
                   resizeMode: 'cover',
                   width: '100%',
@@ -196,7 +196,7 @@ export class HouseDetailScreen extends Component {
                   marginHorizontal: 15,
                 }}>
                 <Image
-                  source={require('../assets/home.jpg')}
+                  source={require('../assets/House2.jpg')}
                   style={{
                     borderRadius: 5,
                     flex: 1,
@@ -209,7 +209,7 @@ export class HouseDetailScreen extends Component {
                   }}
                 />
                 <Image
-                  source={require('../assets/home.jpg')}
+                  source={require('../assets/House3.jpg')}
                   style={{
                     borderRadius: 5,
                     flex: 1,
@@ -222,7 +222,7 @@ export class HouseDetailScreen extends Component {
                   }}
                 />
                 <Image
-                  source={require('../assets/home.jpg')}
+                  source={require('../assets/House4.jpg')}
                   style={{
                     borderRadius: 5,
                     flex: 1,

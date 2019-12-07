@@ -21,7 +21,7 @@ export class Category extends Component {
                         marginVertical: 20,
                     }}>
                     <Image
-                        source={require('../assets/home.jpg')}
+                        source={require('../assets/House1.jpg')}
                         style={{
                             borderRadius: 5,
                             flex: 1,
@@ -34,7 +34,7 @@ export class Category extends Component {
                         }}
                     />
                     <Image
-                        source={require('../assets/home.jpg')}
+                        source={require('../assets/House2.jpg')}
                         style={{
                             borderRadius: 5,
                             flex: 1,
@@ -47,7 +47,7 @@ export class Category extends Component {
                         }}
                     />
                     <Image
-                        source={require('../assets/home.jpg')}
+                        source={require('../assets/House3.jpg')}
                         style={{
                             borderRadius: 5,
                             flex: 1,
