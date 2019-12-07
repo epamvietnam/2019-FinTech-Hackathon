@@ -198,7 +198,7 @@ export class HouseDetailScreen extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.addIcon}>
-          <TouchableOpacity onPress={() => this.doComparision()}>
+          <TouchableOpacity onPress={() => this.doComparison()}>
             <Icon
               name={this.state.iconName}
               type="font-awesome"
