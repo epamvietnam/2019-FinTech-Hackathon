@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {Colors} from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
 import {Icon} from 'react-native-elements';
 import {Rating} from 'react-native-elements';
-import {ScrollView} from 'react-native-gesture-handler';
+import {ScrollView, TouchableHighlight} from 'react-native-gesture-handler';
 
 export class HouseDetailScreen extends Component {
-    render() {
-      return (
+  render() {
+    return (
+      <View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1, backgroundColor: '#f2f2f2'}}>
+          <View style={{flex: 1, backgroundColor: Colors.backgroundColor}}>
             <View style={{flex: 2}}>
               <Image
                 source={require('../assets/house.png')}
@@ -171,11 +172,11 @@ export class HouseDetailScreen extends Component {
                     color: '#bebebe',
                     alignSelf: 'center',
                   }}>
-                  This test message This test message This test message This test
+                  This test message This test message This test message This
+                  test message This test message This test message This test
                   message This test message This test message This test message
-                  This test message This test message This test message This test
-                  message This test message This test message This test message
-                  This test message This test message
+                  This test message This test message This test message This
+                  test message This test message This test message
                 </Text>
               </View>
               {/* List View */}
@@ -225,8 +226,33 @@ export class HouseDetailScreen extends Component {
             </View>
           </View>
         </ScrollView>
-      );
-    }
+        <View style={styles.backIcon}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <Icon
+              name="chevron-left"
+              type="font-awesome"
+              color={Colors.primary}
+              size={25}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
   }
+}
+
+const styles = StyleSheet.create({
+  containView: {
+    flex: 1,
+    backgroundColor: Colors.background,
+  },
+  backIcon: {
+    position: 'absolute',
+    left: 15,
+    top: 15,
+    height: 25,
+    width: 25,
+  },
+});
 
 export default HouseDetailScreen;
