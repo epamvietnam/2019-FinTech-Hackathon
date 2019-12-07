@@ -4,12 +4,6 @@ import ProductItemRow from './ProductItemRow';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
 
-const product = {
-    ProductName: 'ProductName',
-    Address: 'Address',
-    Price: 'Price',
-};
-
 const bedrooms = ['Any', '1', '2', '3', '4', '5+'];
 const bathrooms = ['Any', '1', '2', '3', '4', '5+'];
 const priceRange = ['Any', '$500,000 - $750,000', '$750,000 - $1M', '$1M+'];
@@ -27,6 +21,22 @@ export class AdvanceSearchScreen extends Component {
         })
     };
 
+    renderHeader(touchBackPressed) {
+        return <View>
+            <View style={{ width: 25, height: 25 }}>
+                <TouchableOpacity onPress={touchBackPressed}>
+                    <Icon
+                        name="chevron-left"
+                        type="font-awesome"
+                        color={Colors.disable}
+                        size={25}
+                    />
+                </TouchableOpacity>
+            </View>
+            <Text style={{ fontSize: 30, marginBottom: 5, marginTop: 20 }}>Advance Search</Text>
+        </View>
+    }
+
     renderSearchBar = () => {
         return (                    
         <TouchableHighlight
@@ -40,7 +50,7 @@ export class AdvanceSearchScreen extends Component {
             }}>
             <View style={{flexDirection: 'row', justifyContent: 'center', alignContent: 'center'}}>
                 <TextInput style={{flex: 1, marginLeft: 4}}
-                            placeholder='Input street name, ward or district'/>
+                           placeholder='Input street name, ward or district'/>
                 <View style={{color: Colors.lightGrayColor, alignContent: 'center', borderLeftWidth: 1.5, opacity: 0.5, marginVertical: 4}}/>
                 <TouchableOpacity
                     style={{justifyContent: 'center', alignContent: 'center', paddingHorizontal: 10}}>
@@ -78,17 +88,9 @@ export class AdvanceSearchScreen extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
-            <TouchableOpacity style={{ width: 25, height: 25, margin: 10 }}
-                              onPress={() => this.props.navigation.goBack()}>
-                <Icon
-                    name="chevron-left"
-                    type="font-awesome"
-                    color={Colors.disable}
-                    size={25}
-                />
-            </TouchableOpacity>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{margin: 10}}>
+                    {this.renderHeader(() => this.props.navigation.goBack())}
                     <View>
                         <Text style={{flex: 1.5, textAlignVertical: 'center', marginVertical: 7}}>Location</Text>
                         {this.renderSearchBar()}

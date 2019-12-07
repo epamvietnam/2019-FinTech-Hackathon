@@ -11,10 +11,16 @@ export default createBottomTabNavigator(
         Home: {
             screen: CategoryNavigator,
         },
-        Settings: {
+        Search: {
+            screen: CategoryNavigator,
+        },
+        Wishlist: {
+            screen: CategoryNavigator,
+        },
+        Shop: {
             screen: SettingsScreen,
         },
-        HouseDetail: {
+        Profile: {
             screen: HouseDetailScreen,
         },
     },
@@ -23,11 +29,25 @@ export default createBottomTabNavigator(
             tabBarIcon: ({ focused, horizontal, tintColor }) => {
                 const { routeName } = navigation.state;
                 let iconName;
-                if (routeName === 'Home') {
-                    iconName = 'heartbeat';
-                } else if (routeName === 'Settings') {
-                    iconName = 'heart';
+
+                switch (routeName) {
+                    case 'Home':
+                        iconName = 'home';
+                        break;
+                    case 'Search':
+                        iconName = 'search';
+                        break;
+                    case 'Wishlist':
+                        iconName = 'heart';
+                        break;
+                    case 'Shop':
+                        iconName = 'shopping-bag';
+                        break;
+                    case 'Profile':
+                        iconName = 'user';
+                        break;
                 }
+
                 return (
                     <Icon
                         name={iconName}

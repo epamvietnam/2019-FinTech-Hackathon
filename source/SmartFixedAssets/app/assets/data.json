@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "productName": "150 Kennedy Road, Wan Chai, Hong Kong",
+        "price": 150000,
+        "address": "150 Kennedy Road, Wan Chai, Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/House1.jpg')"
+    },
+    {
+        "id": 2,
+        "productName": "190 Tai Lin Pai Road, Kwai Chung, N.T., Hong Kong",
+        "price": 200000,
+        "address": "190 Tai Lin Pai Road, Kwai Chung, N.T., Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/House2.jpg')"
+    },
+    {
+        "id": 3,
+        "productName": "31 Kwai Fung Crescent, Kwai Chung, Hong Kong",
+        "price": 186000,
+        "address": "31 Kwai Fung Crescent, Kwai Chung, Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/House3.jpg')"
+    },
+    {
+        "id": 4,
+        "productName": "No. 86 Waterloo Road, Ho Man Tin, Kowloon, Hong Kong",
+        "price": 315000,
+        "address": "No. 86 Waterloo Road, Ho Man Tin, Kowloon, Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/House4.jpg')"
+    },
+    {
+        "id": 5,
+        "productName": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "price": 460300,
+        "address": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/House5.jpg')"
+    },
+    {
+        "id": 6,
+        "productName": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "price": 460300,
+        "address": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/House6.jpg')"
+    },
+    {
+        "id": 7,
+        "productName": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "price": 460300,
+        "address": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/House7.jpg')"
+    },
+    {
+        "id": 8,
+        "productName": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "price": 460300,
+        "address": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/Apartment1.jpg')"
+    },
+    {
+        "id": 9,
+        "productName": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "price": 460300,
+        "address": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/Apartment2.jpg')"
+    },
+    {
+        "id": 10,
+        "productName": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "price": 460300,
+        "address": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
+        "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+        "image": "require('../assets/Apartment3.jpg')"
+    }
+]

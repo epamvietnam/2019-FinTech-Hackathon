@@ -5,7 +5,6 @@ import Category from './Category';
 
 export class HomeScreen extends Component {
     onPress = () => {
-        console.log('CategoryListing');
         this.props.navigation.navigate('CategoryListing');
     };
 
@@ -34,12 +33,12 @@ export class HomeScreen extends Component {
                                             justifyContent: 'center',
                                         }}>
                                         <Icon
-                                            name="heartbeat"
+                                            name="home"
                                             type="font-awesome"
                                             color="#fff"
                                             size={20}
                                         />
-                                        <Text style={{ color: '#fff' }}>Properties</Text>
+                                        <Text style={{ color: '#fff' }}>Real Estate</Text>
                                     </View>
                                 </TouchableOpacity>
                             </View>
@@ -57,18 +56,18 @@ export class HomeScreen extends Component {
                                     style={{
                                         flexDirection: 'row',
                                         borderRadius: 5,
-                                        backgroundColor: '#42a832',
+                                        backgroundColor: '#745B47',
                                         flex: 1,
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                     }}>
                                     <Icon
-                                        name="heartbeat"
+                                        name="truck"
                                         type="font-awesome"
                                         color="#fff"
                                         size={18}
                                     />
-                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Classified</Text>
+                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Vihicles</Text>
                                 </View>
                                 <View
                                     style={{
@@ -85,12 +84,12 @@ export class HomeScreen extends Component {
                                         flexDirection: 'row',
                                     }}>
                                     <Icon
-                                        name="heartbeat"
+                                        name="mobile"
                                         type="font-awesome"
                                         color="#fff"
                                         size={18}
                                     />
-                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Motors</Text>
+                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Electronics</Text>
                                 </View>
                             </View>
                             <View
@@ -113,12 +112,12 @@ export class HomeScreen extends Component {
                                         flexDirection: 'row',
                                     }}>
                                     <Icon
-                                        name="heartbeat"
+                                        name="gift"
                                         type="font-awesome"
                                         color="#fff"
                                         size={18}
                                     />
-                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Services</Text>
+                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Gift</Text>
                                 </View>
                                 <View
                                     style={{
@@ -128,19 +127,19 @@ export class HomeScreen extends Component {
                                 <View
                                     style={{
                                         borderRadius: 5,
-                                        backgroundColor: '#6b2473',
+                                        backgroundColor: '#7EB0BA',
                                         flex: 1,
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         flexDirection: 'row',
                                     }}>
                                     <Icon
-                                        name="heartbeat"
+                                        name="book"
                                         type="font-awesome"
                                         color="#fff"
                                         size={18}
                                     />
-                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Jobs</Text>
+                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Books</Text>
                                 </View>
                             </View>
                         </View>
