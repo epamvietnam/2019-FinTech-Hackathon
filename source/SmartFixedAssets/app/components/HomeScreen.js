@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Category from './Category';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export class HomeScreen extends Component {
     onPress = () => {
+        console.log('CategoryListing');
         this.props.navigation.navigate('CategoryListing');
     };
 
