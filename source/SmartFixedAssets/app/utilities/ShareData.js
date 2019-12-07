@@ -11,10 +11,10 @@ export default class ShareData {
     }
 
     getCurrentItem() {
-        return this._currentRouteName;
+        return this._currentItem;
     }
 
     setCurrentItem(item) {
-        this._currentRouteName = item;
+        this._currentItem = item;
     }
 }

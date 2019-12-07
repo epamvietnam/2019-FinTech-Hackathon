@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, TouchableOpacity, FlatList } from 'react-native';
 import ProductItemRow from './ProductItemRow';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
@@ -42,10 +42,10 @@ export class CategoryListingScreen extends Component {
                 data={this.state.data}
                 ListHeaderComponent={this.renderHeader(() => this.props.navigation.goBack())}
                 renderItem={({ item }) => (
-                    <TouchableHighlight
-                        onPress={() => this.props.navigation.navigate('HouseDetail')}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('HouseDetail', { id: item.id })}>
                         <ProductItemRow product={item} />
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 )}
                 keyExtractor={item => item.id.toString()}
             />
