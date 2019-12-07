@@ -4,5 +4,6 @@
     "price": 200000,
     "address": "190 Tai Lin Pai Road, Kwai Chung, N.T., Hong Kong",
     "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
-    "image": "House2.jpg"
+    "image": "require('../assets/House2.jpg')",
+    "rating": 4
 }
