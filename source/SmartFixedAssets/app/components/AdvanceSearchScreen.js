@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, TouchableHighlight, TouchableOpacity, Picker, StyleSheet, CheckBox, TextInput } from 'react-native';
-import ProductItemRow from './ProductItemRow';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
 
@@ -13,6 +12,9 @@ export class AdvanceSearchScreen extends Component {
         bedrooms,
         bathrooms,
         priceRange,
+        nearSchool: false,
+        nearIndustries: false,
+        nearMRTs: false,
     };
 
     map = (array) => {
@@ -33,7 +35,7 @@ export class AdvanceSearchScreen extends Component {
                     />
                 </TouchableOpacity>
             </View>
-            <Text style={{ fontSize: 30, marginBottom: 5, marginTop: 20 }}>Advance Search</Text>
+            <Text style={{ fontSize: 30, marginBottom: 5, marginTop: 20 }}>Advanced Search</Text>
         </View>
     }
 
@@ -108,17 +110,20 @@ export class AdvanceSearchScreen extends Component {
                         <Text style={{flex: 1.5, textAlignVertical: 'center', marginVertical: 7}}>Utilities</Text>
                         <View style={{flexDirection: 'row', flex: 1}}>
                             <View style={{flexDirection: 'row', flex: 1}}>
-                                <CheckBox/>
+                                <CheckBox value={this.state.nearSchool}
+                                          onValueChange={(value) => this.setState({nearSchool: value})}/>
                                 <Text style={{textAlignVertical: 'center'}}>Near Schools</Text>
                             </View>
                             <View style={{flexDirection: 'row', flex: 1}}>
-                                <CheckBox/>
+                                <CheckBox value={this.state.nearIndustries}
+                                          onValueChange={(value) => this.setState({nearIndustries: value})}/>
                                 <Text style={{textAlignVertical: 'center'}}>Near Industries</Text>
                             </View>
                         </View>
                         <View style={{flexDirection: 'row', flex: 1}}>
                             <View style={{flexDirection: 'row', flex: 1}}>
-                                <CheckBox/>
+                                <CheckBox value={this.state.nearMRTs}
+                                          onValueChange={(value) => this.setState({nearMRTs: value})}/>
                                 <Text style={{textAlignVertical: 'center'}}>Near MRTs</Text>
                             </View>
                         </View>
