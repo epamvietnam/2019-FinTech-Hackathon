@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,27 +7,25 @@ import {
   TouchableOpacity,
   ToastAndroid,
 } from 'react-native';
-import { Colors, ScreenDimension } from '../styles/DefaultStyles';
+import {Colors, ScreenDimension} from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
-import { Icon } from 'react-native-elements';
-import { Rating } from 'react-native-elements';
-import { ScrollView } from 'react-native-gesture-handler';
-import { getPropertyDetail } from '../services/DataService';
+import {Icon} from 'react-native-elements';
+import {Rating} from 'react-native-elements';
+import {ScrollView} from 'react-native-gesture-handler';
+import {getPropertyDetail} from '../services/DataService';
 import ShareData from '../utilities/ShareData';
 
 export class HouseDetailScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: null, iconName: 'plus-circle' };
+    this.state = {data: null, iconName: 'plus-circle'};
   }
 
   async componentDidMount() {
-    let id = this.props.navigation.getParam("id", 1);
+    let id = this.props.navigation.getParam('id', 1);
     let result = await getPropertyDetail(id);
     console.log(result);
-    this.setState((
-      { data: result }
-    ));
+    this.setState({data: result});
 
     this.getIconName();
   }
@@ -36,39 +34,34 @@ export class HouseDetailScreen extends Component {
     let appData = ShareData.getInstance();
     let currentItem = appData.getCurrentItem();
     if (currentItem === null || this.state.data === null) {
-      this.setState((
-        { iconName: "plus-circle" }
-      ));
-    }
-    else if (currentItem.id === this.state.data.id) {
-      this.setState((
-        { iconName: "minus-circle" }
-      ));
-    }
-    else {
-      this.setState((
-        { iconName: "list-alt" }
-      ));
+      this.setState({iconName: 'plus-circle'});
+    } else if (currentItem.id === this.state.data.id) {
+      this.setState({iconName: 'minus-circle'});
+    } else {
+      this.setState({iconName: 'list-alt'});
     }
   }
 
-  doComparision() {
-    if (this.state.data === null)
-      return;
+  doComparison() {
+    if (this.state.data === null) return;
 
     let appData = ShareData.getInstance();
     let currentItem = appData.getCurrentItem();
     if (currentItem === null) {
       appData.setCurrentItem(this.state.data);
       this.getIconName();
-      ToastAndroid.show("Add this house to further comparison", ToastAndroid.SHORT);
-    }
-    else if (currentItem.id === this.state.data.id) {
+      ToastAndroid.show(
+        'Add this house to further comparison',
+        ToastAndroid.SHORT,
+      );
+    } else if (currentItem.id === this.state.data.id) {
       appData.setCurrentItem(null);
       this.getIconName();
-      ToastAndroid.show("Remove this house from comparison", ToastAndroid.SHORT);
-    }
-    else {
+      ToastAndroid.show(
+        'Remove this house from comparison',
+        ToastAndroid.SHORT,
+      );
+    } else {
       this.props.navigation.navigate('CompareAssert');
     }
   }
@@ -76,131 +69,48 @@ export class HouseDetailScreen extends Component {
   render() {
     return (
       <View>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={{ flex: 1, backgroundColor: Colors.backgroundColor }}>
-            <View style={{ flex: 2 }}>
+        <ScrollView contentContainerStyle={{flexGrow: 1}}>
+          <View style={{flex: 1}}>
+            <View>
               <Image
                 source={require('../assets/House1.jpg')}
-                style={{
-                  resizeMode: 'cover',
-                  width: '100%',
-                  flex: 1,
-                }}
+                style={styles.imageView}
               />
               <LinearGradient
                 colors={['transparent', 'transparent', 'white']}
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                }}
+                style={styles.linearImageView}
               />
             </View>
-            <View
-              style={{
-                flex: 5,
-                marginTop: -85,
-                marginBottom: 16,
-                alignSelf: 'center',
-              }}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  color: '#FFFF',
-                  alignSelf: 'center',
-                }}>
-                ¥1120000
+            <View style={styles.containView}>
+              <Text style={styles.costText}>¥ 1120000</Text>
+              <Text style={styles.addressText}>
+                {this.state.data !== null ? this.state.data.productName : ''}
               </Text>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  flexDirection: 'row',
-                }}>
-                <Text
-                  style={{
-                    fontSize: 22,
-                    color: Colors.primary,
-                  }}>
-                  {this.state.data !== null ? this.state.data.productName : ""}
-                </Text>
-              </View>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  flexDirection: 'row',
-                  marginTop: 10,
-                }}>
+              <View style={styles.buttonContainView}>
                 <TouchableOpacity
-                  style={{
-                    alignSelf: 'stretch',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: 40,
-                    width: 120,
-                    borderWidth: 0,
-                    paddingVertical: 5,
-                    marginRight: 10,
-                    backgroundColor: '#F29335',
-                  }}>
-                  <View
-                    style={{
-                      alignSelf: 'center',
-                      flexDirection: 'row',
-                      paddingHorizontal: 10,
-                    }}>
+                  style={[styles.button, {backgroundColor: '#F29335'}]}>
+                  <View style={styles.buttonInsideView}>
                     <Icon
                       name="shopping-cart"
                       type="font-awesome"
                       size={20}
                       color="#FFFFFF"
                     />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 14,
-                        letterSpacing: 0.44,
-                        textTransform: 'uppercase',
-                        fontWeight: 'bold',
-                        marginHorizontal: 10,
-                      }}>
+                    <Text style={styles.buttonText}>
                       Buy
                     </Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={{
-                    alignSelf: 'stretch',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: 40,
-                    width: 120,
-                    borderWidth: 0,
-                    paddingVertical: 5,
-                    backgroundColor: '#106cc8',
-                  }}>
-                  <View
-                    style={{
-                      alignSelf: 'center',
-                      flexDirection: 'row',
-                      paddingHorizontal: 10,
-                    }}>
+                  style={[styles.button, {backgroundColor: '#106cc8'}]}>
+                  <View style={styles.buttonInsideView}>
                     <Icon
                       name="history"
                       type="font-awesome"
                       size={20}
                       color="#FFFFFF"
                     />
-                    <Text
-                      style={{
-                        color: '#FFFFFF',
-                        fontSize: 14,
-                        letterSpacing: 0.44,
-                        textTransform: 'uppercase',
-                        fontWeight: 'bold',
-                        marginHorizontal: 10,
-                      }}>
+                    <Text style={styles.buttonText}>
                       History
                     </Text>
                   </View>
@@ -208,28 +118,16 @@ export class HouseDetailScreen extends Component {
               </View>
               {/* Content */}
               <View
-                style={{
-                  flexDirection: 'column',
-                  marginVertical: 20,
-                  marginHorizontal: 15,
-                  backgroundColor: '#ffff',
-                  padding: 10,
-                  borderRadius: 5,
-                }}>
+                style={styles.contentView}>
                 <Text
-                  style={{
-                    fontSize: 14,
-                    fontWeight: '400',
-                    color: '#000',
-                    alignSelf: 'flex-start',
-                  }}>
+                  style={styles.title}>
                   Two Bed Room Apartment
                 </Text>
                 <Rating
                   type="custom"
                   ratingImage={require('../assets/star.png')}
-                  ratingColor='transparent'
-                  ratingBackgroundColor='transparent'
+                  ratingColor="transparent"
+                  ratingBackgroundColor="transparent"
                   imageSize={20}
                   readonly
                   startingValue={4}
@@ -237,11 +135,7 @@ export class HouseDetailScreen extends Component {
                   style={{alignSelf: 'flex-start', marginVertical: 5}}
                 />
                 <Text
-                  style={{
-                    fontSize: 12,
-                    color: '#bebebe',
-                    alignSelf: 'center',
-                  }}>
+                  style={styles.description}>
                   This test message This test message This test message This
                   test message This test message This test message This test
                   message This test message This test message This test message
@@ -251,13 +145,7 @@ export class HouseDetailScreen extends Component {
               </View>
               {/* List View */}
               <View
-                style={{
-                  flexDirection: 'row',
-                  backgroundColor: '#ffff',
-                  padding: 7,
-                  borderRadius: 5,
-                  marginHorizontal: 15,
-                }}>
+                style={styles.listView}>
                 <Image
                   source={require('../assets/House2.jpg')}
                   style={{
@@ -266,22 +154,13 @@ export class HouseDetailScreen extends Component {
                     height: 100,
                   }}
                 />
-                <View
-                  style={{
-                    width: 10,
-                  }}
-                />
                 <Image
                   source={require('../assets/House3.jpg')}
                   style={{
                     borderRadius: 5,
                     flex: 1,
                     height: 100,
-                  }}
-                />
-                <View
-                  style={{
-                    width: 10,
+                    marginHorizontal: 10
                   }}
                 />
                 <Image
@@ -298,13 +177,13 @@ export class HouseDetailScreen extends Component {
         </ScrollView>
         <LinearGradient
           colors={['transparent', 'white']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
+          start={{x: 0, y: 0}}
+          end={{x: 0, y: 1}}
           style={styles.linearBackIcon}
         />
         <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
+          start={{x: 0, y: 0}}
+          end={{x: 0, y: 1}}
           colors={['transparent', 'white']}
           style={styles.linearAddIcon}
         />
@@ -319,7 +198,7 @@ export class HouseDetailScreen extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.addIcon}>
-          <TouchableOpacity onPress={() => this.doComparision()}>
+          <TouchableOpacity onPress={() => this.doComparison()}>
             <Icon
               name={this.state.iconName}
               type="font-awesome"
@@ -335,8 +214,9 @@ export class HouseDetailScreen extends Component {
 
 const styles = StyleSheet.create({
   containView: {
-    flex: 1,
-    backgroundColor: Colors.background,
+    marginTop: -85,
+    marginBottom: 16,
+    alignSelf: 'center',
   },
   backIcon: {
     position: 'absolute',
@@ -351,7 +231,7 @@ const styles = StyleSheet.create({
     right: 0,
     height: 150,
     width: 150,
-    transform: [{ rotate: 45 }]
+    transform: [{rotate: 45}],
   },
   addIcon: {
     flexDirection: 'row',
@@ -367,7 +247,85 @@ const styles = StyleSheet.create({
     right: 0,
     height: 150,
     width: 150,
-    transform: [{ rotate: -45 }]
+    transform: [{rotate: -45}],
+  },
+  imageView: {
+    width: ScreenDimension.width,
+    height: 420,
+    flex: 1,
+  },
+  linearImageView: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  costText: {
+    fontSize: 18,
+    color: 'red',
+    alignSelf: 'flex-start',
+    marginHorizontal: 20,
+  },
+  addressText: {
+    fontSize: 22,
+    color: Colors.primary,
+    alignSelf: 'center',
+    marginHorizontal: 20,
+  },
+  buttonContainView: {
+    alignSelf: 'center',
+    flexDirection: 'row',
+    marginTop: 10,
+  },
+  button: {
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    width: ScreenDimension.SemiScreenWidth - 30,
+    borderWidth: 0,
+    paddingVertical: 5,
+    marginRight: 10,
+  },
+  buttonInsideView: {
+    alignSelf: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 14,
+    letterSpacing: 0.44,
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    marginHorizontal: 10,
+  },
+  contentView: {
+    flexDirection: 'column',
+    marginVertical: 10,
+    marginHorizontal: 15,
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 5,
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: '#000',
+    alignSelf: 'flex-start',
+  },
+  description: {
+    fontSize: 12,
+    color: '#bebebe',
+    alignSelf: 'center',
+  },
+  listView:{ 
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    padding: 7,
+    borderRadius: 5,
+    marginHorizontal: 15,
   },
 });
 

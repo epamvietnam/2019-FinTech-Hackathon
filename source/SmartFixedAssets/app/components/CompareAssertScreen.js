@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
-import {StyleSheet, FlatList, View, Text, Image} from 'react-native';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  View,
+  Text,
+  Image,
+} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Colors, ScreenDimension} from '../styles/DefaultStyles';
-import {Rating} from 'react-native-elements';
+import {Rating, Icon} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 
 const DATA = [
@@ -129,17 +136,30 @@ export class CompareAssertScreen extends Component {
                 />
                 <Text style={styles.content}>{item.NearSchool[0]}</Text>
               </View>
-
             </View>
-            
           )}
         />
+        <View style={styles.backIcon}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <Icon
+              name="chevron-left"
+              type="font-awesome"
+              color={Colors.primary}
+              size={25}
+            />
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  backIcon: {
+    position: 'absolute',
+    left: 15,
+    top: 15,
+  },
   containView: {
     flex: 1,
     backgroundColor: Colors.background,
@@ -159,7 +179,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 18,
     marginBottom: 15,
-    color: Colors.primary
+    color: Colors.primary,
   },
   address: {
     fontSize: 15,
