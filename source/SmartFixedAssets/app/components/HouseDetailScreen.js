@@ -170,9 +170,15 @@ export class HouseDetailScreen extends Component {
                 style={[styles.contentView, { borderWidth: 0.5, borderColor: '#ccc', marginTop: 30 }]}>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ flex: 1 }}>
-                    <Text style={{ fontSize: 20, marginTop: -25, backgroundColor: '#fff', marginHorizontal: 5, paddingHorizontal: 5, width: 200 }}>Contact information</Text>
-                    <Text>Mrs. Agatha Christie</Text>
-                    <Text>123 Str Ward 10, Hong Kong</Text>
+                    <Text style={{ fontSize: 20, marginTop: -25, backgroundColor: '#fff', marginHorizontal: 5, paddingHorizontal: 5, width: 200, color: Colors.primary }}>Contact information</Text>
+                    <Text style={{
+                      fontSize: 14,
+                      color: '#bebebe',
+                    }}>Mrs. Agatha Christie</Text>
+                    <Text style={{
+                      fontSize: 14,
+                      color: '#bebebe',
+                    }}>123 Str Ward 10, Hong Kong</Text>
                   </View>
                   <View style={{
                     alignSelf: 'flex-end',
