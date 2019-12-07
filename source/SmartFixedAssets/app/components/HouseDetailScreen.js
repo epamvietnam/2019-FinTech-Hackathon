@@ -226,11 +226,15 @@ export class HouseDetailScreen extends Component {
                   Two Bed Room Apartment
                 </Text>
                 <Rating
+                  type="custom"
+                  ratingImage={require('../assets/star.png')}
+                  ratingColor='transparent'
+                  ratingBackgroundColor='transparent'
                   imageSize={20}
                   readonly
                   startingValue={4}
                   ratingCount={5}
-                  style={{ alignSelf: 'flex-start', marginVertical: 5 }}
+                  style={{alignSelf: 'flex-start', marginVertical: 5}}
                 />
                 <Text
                   style={{
