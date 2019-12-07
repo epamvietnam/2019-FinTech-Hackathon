@@ -27,6 +27,8 @@ export default createBottomTabNavigator(
                     iconName = 'heartbeat';
                 } else if (routeName === 'Settings') {
                     iconName = 'heart';
+                } else if (routeName === 'HouseDetail') {
+                    iconName = 'rocket';
                 }
                 return (
                     <Icon

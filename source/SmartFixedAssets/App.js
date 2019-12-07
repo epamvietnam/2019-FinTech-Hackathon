@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, { PureComponent } from 'react';
 import { StatusBar, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
