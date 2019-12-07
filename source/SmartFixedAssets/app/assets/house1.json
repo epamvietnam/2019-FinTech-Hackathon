@@ -1,7 +1,8 @@
 {
     "id": 1,
-    "productName": "Vietnamese House 1",
-    "price": 51,
-    "address": "",
-    "description": null
+    "productName": "150 Kennedy Road, Wan Chai, Hong Kong",
+    "price": 150000,
+    "address": "150 Kennedy Road, Wan Chai, Hong Kong",
+    "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
+    "image": "require('../assets/House1.jpg')"
 }
