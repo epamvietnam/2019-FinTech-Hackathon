@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 import { Colors, ScreenDimension } from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
@@ -60,10 +61,12 @@ export class HouseDetailScreen extends Component {
     if (currentItem === null) {
       appData.setCurrentItem(this.state.data);
       this.getIconName();
+      ToastAndroid.show("Add this house to further comparison", ToastAndroid.SHORT);
     }
     else if (currentItem.id === this.state.data.id) {
       appData.setCurrentItem(null);
       this.getIconName();
+      ToastAndroid.show("Remove this house from comparison", ToastAndroid.SHORT);
     }
     else {
       this.props.navigation.navigate('CompareAssert');
