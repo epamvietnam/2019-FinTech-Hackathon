@@ -1,37 +1,42 @@
 [
     {
         "id": 1,
-        "productName": "Vietnamese House 1",
+        "productName": "150 Kennedy Road, Wan Chai, Hong Kong",
         "price": 51,
         "address": "",
-        "description": null
+        "description": null,
+        "image": "require('../assets/House1.jpg')"
     },
     {
         "id": 2,
-        "productName": "Vietnamese House 2",
+        "productName": "190 Tai Lin Pai Road, Kwai Chung, N.T., Hong Kong",
         "price": 52,
         "address": "",
-        "description": null
+        "description": null,
+        "image": "require('../assets/House2.jpg')"
     },
     {
         "id": 3,
-        "productName": "Vietnamese House 3",
+        "productName": "31 Kwai Fung Crescent, Kwai Chung, Hong Kong",
         "price": 53,
         "address": "",
-        "description": null
+        "description": null,
+        "image": "require('../assets/House3.jpg')"
     },
     {
         "id": 4,
-        "productName": "Vietnamese House 4",
+        "productName": "No. 86 Waterloo Road, Ho Man Tin, Kowloon, Hong Kong",
         "price": 54,
         "address": "",
-        "description": null
+        "description": null,
+        "image": "require('../assets/House4.jpg')"
     },
     {
         "id": 5,
-        "productName": "Vietnamese House 5",
+        "productName": "22-40 Fuk Man Road, Sai Sung, N.T., Hong Kong",
         "price": 55,
         "address": "",
-        "description": null
+        "description": null,
+        "image": "require('../assets/House5.jpg')"
     }
 ]
