@@ -82,7 +82,9 @@ export class HouseDetailScreen extends Component {
               />
             </View>
             <View style={styles.containView}>
-              <Text style={styles.costText}>¥ 1120000</Text>
+              <Text style={styles.costText}>
+                ${this.state.data !== null ? this.state.data.price : ''}
+              </Text>
               <Text style={styles.addressText}>
                 {this.state.data !== null ? this.state.data.productName : ''}
               </Text>
@@ -119,10 +121,6 @@ export class HouseDetailScreen extends Component {
               {/* Content */}
               <View
                 style={styles.contentView}>
-                <Text
-                  style={styles.title}>
-                  Two Bed Room Apartment
-                </Text>
                 <Rating
                   type="custom"
                   ratingImage={require('../assets/star.png')}
@@ -131,16 +129,11 @@ export class HouseDetailScreen extends Component {
                   imageSize={20}
                   readonly
                   startingValue={4}
-                  ratingCount={5}
+                  ratingCount={this.state.data.ratingCount}
                   style={{alignSelf: 'flex-start', marginVertical: 5}}
                 />
-                <Text
-                  style={styles.description}>
-                  This test message This test message This test message This
-                  test message This test message This test message This test
-                  message This test message This test message This test message
-                  This test message This test message This test message This
-                  test message This test message This test message
+                <Text style={styles.description}>
+                  {this.state.data !== null ? this.state.data.description : ''}
                 </Text>
               </View>
               {/* List View */}
@@ -316,7 +309,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   description: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#bebebe',
     alignSelf: 'center',
   },
