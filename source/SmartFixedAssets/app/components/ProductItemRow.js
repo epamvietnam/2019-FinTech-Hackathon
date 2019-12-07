@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import { Colors } from '../styles/DefaultStyles';
+import { getImagePath } from '../utilities/CommonHelper';
 
 export class ProductItemRow extends Component {
     render() {
@@ -15,7 +16,7 @@ export class ProductItemRow extends Component {
                     borderWidth: 0.5,
                 }}>
                 <Image
-                    source={require('../assets/House1.jpg')}
+                    source={getImagePath(this.props.product.image)}
                     style={{
                         borderRadius: 5,
                         height: 90,
