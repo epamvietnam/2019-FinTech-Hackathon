@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import {Colors} from '../styles/DefaultStyles';
+import {Colors, ScreenDimension} from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
 import {Icon} from 'react-native-elements';
 import {Rating} from 'react-native-elements';
@@ -236,12 +236,12 @@ export class HouseDetailScreen extends Component {
         <LinearGradient
           colors={['transparent', 'white']}
           start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
+          end={{x: 0, y: 1}}
           style={styles.linearBackIcon}
         />
         <LinearGradient
-          start={{x: 1, y: 0}}
-          end={{x: 0, y: 0}}
+          start={{x: 0, y: 0}}
+          end={{x: 0, y: 1}}
           colors={['transparent', 'white']}
           style={styles.linearAddIcon}
         />
@@ -282,12 +282,12 @@ const styles = StyleSheet.create({
   },
   linearBackIcon: {
     position: 'absolute',
-    top: 0,
+    top: -98,
     bottom: 0,
-    left: 0,
+    left: -75,
     right: 0,
-    height: 55,
-    width: 55,
+    height: 150,
+    width: 150,
     transform: [{rotate:45}]
   },
   addIcon: {
@@ -298,12 +298,12 @@ const styles = StyleSheet.create({
   },
   linearAddIcon: {
     position: 'absolute',
-    top: 0,
+    top: -98,
     bottom: 0,
-    left: Dimensions.width,
+    left: ScreenDimension.ScreenWidth - 75,
     right: 0,
-    height: 55,
-    width: 55,
+    height: 150,
+    width: 150,
     transform: [{rotate:-45}]
   },
 });
