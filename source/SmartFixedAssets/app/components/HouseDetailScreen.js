@@ -138,7 +138,6 @@ export class HouseDetailScreen extends Component {
                   {this.state.data !== null ? this.state.data.description : ''}
                 </Text>
               </View>
-              {/* List View */}
               <View
                 style={styles.listView}>
                 <Image
@@ -166,6 +165,33 @@ export class HouseDetailScreen extends Component {
                     height: 100,
                   }}
                 />
+              </View>
+              <View
+                style={[styles.contentView, { borderWidth: 0.5, borderColor: '#ccc', marginTop: 30 }]}>
+                <View style={{ flexDirection: 'row' }}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 20, marginTop: -25, backgroundColor: '#fff', marginHorizontal: 5, paddingHorizontal: 5, width: 200, color: Colors.primary }}>Contact information</Text>
+                    <Text style={{
+                      fontSize: 14,
+                      color: '#bebebe',
+                    }}>Mrs. Agatha Christie</Text>
+                    <Text style={{
+                      fontSize: 14,
+                      color: '#bebebe',
+                    }}>123 Str Ward 10, Hong Kong</Text>
+                  </View>
+                  <View style={{
+                    alignSelf: 'flex-end',
+                    alignItems: 'flex-end',
+                  }}>
+                    <Icon
+                      name="phone"
+                      type="font-awesome"
+                      size={25}
+                      color={Colors.primary}
+                    />
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -202,7 +228,7 @@ export class HouseDetailScreen extends Component {
             />
           </TouchableOpacity>
         </View>
-      </View>
+      </View >
     );
   }
 }
