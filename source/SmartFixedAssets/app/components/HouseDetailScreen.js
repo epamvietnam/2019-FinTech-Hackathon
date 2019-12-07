@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,25 +7,27 @@ import {
   TouchableOpacity,
   ToastAndroid,
 } from 'react-native';
-import {Colors, ScreenDimension} from '../styles/DefaultStyles';
+import { Colors, ScreenDimension } from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
-import {Icon} from 'react-native-elements';
-import {Rating} from 'react-native-elements';
-import {ScrollView} from 'react-native-gesture-handler';
-import {getPropertyDetail} from '../services/DataService';
+import { Icon } from 'react-native-elements';
+import { Rating } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
+import { getPropertyDetail } from '../services/DataService';
 import ShareData from '../utilities/ShareData';
+import Images from '../utilities/ImageConstants';
+import { getImagePath } from '../utilities/CommonHelper';
 
 export class HouseDetailScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = {data: null, iconName: 'plus-circle'};
+    this.state = { data: null, iconName: 'plus-circle' };
   }
 
   async componentDidMount() {
     let id = this.props.navigation.getParam('id', 1);
     let result = await getPropertyDetail(id);
     console.log(result);
-    this.setState({data: result});
+    this.setState({ data: result });
 
     this.getIconName();
   }
@@ -34,11 +36,11 @@ export class HouseDetailScreen extends Component {
     let appData = ShareData.getInstance();
     let currentItem = appData.getCurrentItem();
     if (currentItem === null || this.state.data === null) {
-      this.setState({iconName: 'plus-circle'});
+      this.setState({ iconName: 'plus-circle' });
     } else if (currentItem.id === this.state.data.id) {
-      this.setState({iconName: 'minus-circle'});
+      this.setState({ iconName: 'minus-circle' });
     } else {
-      this.setState({iconName: 'list-alt'});
+      this.setState({ iconName: 'list-alt' });
     }
   }
 
@@ -69,11 +71,11 @@ export class HouseDetailScreen extends Component {
   render() {
     return (
       <View>
-        <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1}}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+          <View style={{ flex: 1 }}>
             <View>
               <Image
-                source={require('../assets/House1.jpg')}
+                source={getImagePath(this.state.data !== null ? this.state.data.image : '')}
                 style={styles.imageView}
               />
               <LinearGradient
@@ -88,7 +90,7 @@ export class HouseDetailScreen extends Component {
               </Text>
               <View style={styles.buttonContainView}>
                 <TouchableOpacity
-                  style={[styles.button, {backgroundColor: '#F29335'}]}>
+                  style={[styles.button, { backgroundColor: '#F29335' }]}>
                   <View style={styles.buttonInsideView}>
                     <Icon
                       name="shopping-cart"
@@ -102,7 +104,7 @@ export class HouseDetailScreen extends Component {
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={[styles.button, {backgroundColor: '#106cc8'}]}>
+                  style={[styles.button, { backgroundColor: '#106cc8' }]}>
                   <View style={styles.buttonInsideView}>
                     <Icon
                       name="history"
@@ -132,7 +134,7 @@ export class HouseDetailScreen extends Component {
                   readonly
                   startingValue={4}
                   ratingCount={5}
-                  style={{alignSelf: 'flex-start', marginVertical: 5}}
+                  style={{ alignSelf: 'flex-start', marginVertical: 5 }}
                 />
                 <Text
                   style={styles.description}>
@@ -147,7 +149,7 @@ export class HouseDetailScreen extends Component {
               <View
                 style={styles.listView}>
                 <Image
-                  source={require('../assets/House2.jpg')}
+                  source={Images.House2}
                   style={{
                     borderRadius: 5,
                     flex: 1,
@@ -155,7 +157,7 @@ export class HouseDetailScreen extends Component {
                   }}
                 />
                 <Image
-                  source={require('../assets/House3.jpg')}
+                  source={Images.House3}
                   style={{
                     borderRadius: 5,
                     flex: 1,
@@ -164,7 +166,7 @@ export class HouseDetailScreen extends Component {
                   }}
                 />
                 <Image
-                  source={require('../assets/House4.jpg')}
+                  source={Images.House4}
                   style={{
                     borderRadius: 5,
                     flex: 1,
@@ -177,13 +179,13 @@ export class HouseDetailScreen extends Component {
         </ScrollView>
         <LinearGradient
           colors={['transparent', 'white']}
-          start={{x: 0, y: 0}}
-          end={{x: 0, y: 1}}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
           style={styles.linearBackIcon}
         />
         <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 0, y: 1}}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
           colors={['transparent', 'white']}
           style={styles.linearAddIcon}
         />
@@ -231,7 +233,7 @@ const styles = StyleSheet.create({
     right: 0,
     height: 150,
     width: 150,
-    transform: [{rotate: 45}],
+    transform: [{ rotate: 45 }],
   },
   addIcon: {
     flexDirection: 'row',
@@ -247,7 +249,7 @@ const styles = StyleSheet.create({
     right: 0,
     height: 150,
     width: 150,
-    transform: [{rotate: -45}],
+    transform: [{ rotate: -45 }],
   },
   imageView: {
     width: ScreenDimension.width,
@@ -320,7 +322,7 @@ const styles = StyleSheet.create({
     color: '#bebebe',
     alignSelf: 'center',
   },
-  listView:{ 
+  listView: {
     flexDirection: 'row',
     backgroundColor: 'white',
     padding: 7,

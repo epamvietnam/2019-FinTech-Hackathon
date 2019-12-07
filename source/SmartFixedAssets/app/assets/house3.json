@@ -4,5 +4,5 @@
     "price": 186000,
     "address": "31 Kwai Fung Crescent, Kwai Chung, Hong Kong",
     "description": "3 Bedroom(s); 3 Bathroom(s); Separate Living and Dining Room; 2 Maid's Room; 1 Balcony; Dynamic views of Victoria Harbour with an occasional firework view as a bonus",
-    "image": "require('../assets/House3.jpg')"
+    "image": "House3.jpg"
 }
