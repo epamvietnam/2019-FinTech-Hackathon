@@ -29,7 +29,7 @@ const DATA = [
     id: 2,
     index: 1,
     title: 'House 2',
-    address: '150 Kennedy Road, Wan Chai, Hong Kong',
+    address: '190 Tai Lin Pai Road, Kwai Chung, Hong Kong',
     image: require('../assets/House2.jpg'),
     Price: ['$150000', 3],
     NoOfBedroom: ['1 Bedroom', 2],
@@ -153,7 +153,8 @@ export class CompareAssertScreen extends Component {
           )}
         />
         <Text style={styles.summary}>
-          This summary This summary This summary This summary This summary This summary This summary 
+           Suggest to you
+           "150 Kennedy Road, Wan Chai, Hong Kong"
         </Text>
         <LinearGradient
           colors={['transparent', 'white']}
