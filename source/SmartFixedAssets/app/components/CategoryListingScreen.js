@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, TouchableHighlight, TouchableOpacity, FlatList } from 'react-native';
 import ProductItemRow from './ProductItemRow';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
@@ -19,37 +19,36 @@ export class CategoryListingScreen extends Component {
         ));
     }
 
+    renderHeader(touchBackPressed) {
+        return <View>
+            <View style={{ width: 25, height: 25 }}>
+                <TouchableOpacity onPress={touchBackPressed}>
+                    <Icon
+                        name="chevron-left"
+                        type="font-awesome"
+                        color={Colors.disable}
+                        size={25}
+                    />
+                </TouchableOpacity>
+            </View>
+            <Text style={{ fontSize: 30, marginVertical: 20 }}>Properties</Text>
+        </View>
+    }
+
     render() {
         return (
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <View
-                    style={{
-                        margin: 10,
-                    }}>
-                    <View style={{ width: 25, height: 25 }}>
-                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                            <Icon
-                                name="chevron-left"
-                                type="font-awesome"
-                                color={Colors.disable}
-                                size={25}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                    <Text style={{ fontSize: 30, marginVertical: 20 }}>Properties</Text>
-                    <FlatList
-                        showsVerticalScrollIndicator={false}
-                        data={this.state.data}
-                        renderItem={({ item }) => (
-                            <TouchableHighlight
-                                onPress={() => this.props.navigation.navigate('HouseDetail')}>
-                                <ProductItemRow product={item} />
-                            </TouchableHighlight>
-                        )}
-                        keyExtractor={item => item.id.toString()}
-                    />
-                </View>
-            </ScrollView>
+            <FlatList style={{ margin: 10 }}
+                showsVerticalScrollIndicator={false}
+                data={this.state.data}
+                ListHeaderComponent={this.renderHeader(() => this.props.navigation.goBack())}
+                renderItem={({ item }) => (
+                    <TouchableHighlight
+                        onPress={() => this.props.navigation.navigate('HouseDetail')}>
+                        <ProductItemRow product={item} />
+                    </TouchableHighlight>
+                )}
+                keyExtractor={item => item.id.toString()}
+            />
         )
     }
 }
