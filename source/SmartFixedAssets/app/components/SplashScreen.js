@@ -1,17 +1,12 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
-import AnimatedLinearGradient, {
-    presetColors,
-} from 'react-native-animated-linear-gradient';
+import { View, Text, StatusBar, Image } from 'react-native';
 
-const text = 'iLand';
+const appName = 'Smart Fixed Assets';
+const version = '1.0.0';
 
 class SplashScreen extends React.Component {
     constructor() {
         super();
-        this.state = {
-            displayText: '',
-        };
         StatusBar.setHidden(true);
     }
 
@@ -20,21 +15,12 @@ class SplashScreen extends React.Component {
     }
 
     performTimeConsumingTask = async () => {
-        let count = 0;
         return new Promise(
             resolve =>
-                (this.timerInterval = setInterval(() => {
-                    if (this.state.displayText === text) {
-                        clearInterval(this.timerInterval);
-                        resolve('result');
-                        this.props.navigation.navigate('App');
-                    } else {
-                        let newString = text[count];
-                        this.setState({ displayText: this.state.displayText + newString });
-                        count++;
-                    }
-                }, 1000)),
-        );
+                setTimeout(() => {
+                    resolve('result');
+                    this.props.navigation.navigate('App');
+                }, 3000));
     };
 
     async componentDidMount() {
@@ -43,23 +29,33 @@ class SplashScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.viewStyles}>
-                <AnimatedLinearGradient
-                    customColors={presetColors.sunrise}
-                    speed={1000}
-                />
-                <Text style={styles.textStyles}>{this.state.displayText}</Text>
+            <View style={{ flex: 1 }}>
+                <Image style={{
+                    position: 'absolute', top: 0, bottom: 0, left: 0, right: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: null,
+                    height: null,
+                }} source={require('../assets/splash_screen.jpg')} />
+                <View style={{
+                    position: 'absolute', bottom: 10, right: 10,
+                    justifyContent: 'flex-end',
+                    alignItems: 'flex-end',
+                }}>
+                    <Text style={{
+                        color: '#fff', fontSize: 25
+                    }}>{appName}</Text>
+                    <Text style={{
+                        color: '#fff', fontSize: 15
+                    }}>{version}</Text>
+                </View>
+
             </View>
         );
     }
 }
 
 const styles = {
-    viewStyles: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     textStyles: {
         color: 'white',
         fontSize: 40,

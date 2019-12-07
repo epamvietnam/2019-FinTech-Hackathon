@@ -5,7 +5,6 @@ import Category from './Category';
 
 export class HomeScreen extends Component {
     onPress = () => {
-        console.log('CategoryListing');
         this.props.navigation.navigate('CategoryListing');
     };
 
