@@ -67,7 +67,7 @@ export class HomeScreen extends Component {
                                         color="#fff"
                                         size={18}
                                     />
-                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Vihicles</Text>
+                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Vehicles</Text>
                                 </View>
                                 <View
                                     style={{
