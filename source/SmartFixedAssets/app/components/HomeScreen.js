@@ -62,7 +62,7 @@ export class HomeScreen extends Component {
                                         justifyContent: 'center',
                                     }}>
                                     <Icon
-                                        name="truck"
+                                        name="car"
                                         type="font-awesome"
                                         color="#fff"
                                         size={18}
@@ -112,12 +112,12 @@ export class HomeScreen extends Component {
                                         flexDirection: 'row',
                                     }}>
                                     <Icon
-                                        name="gift"
+                                        name="leaf"
                                         type="font-awesome"
                                         color="#fff"
                                         size={18}
                                     />
-                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Gift</Text>
+                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Furniture</Text>
                                 </View>
                                 <View
                                     style={{
@@ -134,19 +134,19 @@ export class HomeScreen extends Component {
                                         flexDirection: 'row',
                                     }}>
                                     <Icon
-                                        name="book"
+                                        name="wrench"
                                         type="font-awesome"
                                         color="#fff"
                                         size={18}
                                     />
-                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Books</Text>
+                                    <Text style={{ color: '#fff', marginLeft: 5 }}>Machinery</Text>
                                 </View>
                             </View>
                         </View>
                     </View>
                     <Category categoryName="Popular Trending" />
                     <Category categoryName="Featured Ads" />
-                    <Category categoryName="Top Deals" />
+                    <Category categoryName="Top Rating" />
                 </View>
             </ScrollView>
         );
