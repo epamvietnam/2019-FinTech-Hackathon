@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity, Text, Button } from 'react-native';
+import { Image, View, TouchableOpacity, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
 import { getImagePath } from '../utilities/CommonHelper';
@@ -7,7 +7,7 @@ import { getImagePath } from '../utilities/CommonHelper';
 export class CartDetailScreen extends Component {
     constructor(props) {
         super(props);
-        this.state = { data: null };
+        this.state = { data: null, buySuccess: false };
     }
 
     async componentDidMount() {
@@ -16,6 +16,26 @@ export class CartDetailScreen extends Component {
     }
 
     render() {
+
+        let button;
+        if (!this.state.buySuccess) {
+            button = <TouchableOpacity style={{ height: 60, backgroundColor: Colors.primary, justifyContent: 'center', marginTop: 50 }}
+                onPress={() => this.setState({ buySuccess: true })}>
+                <Text style={{ color: Colors.whiteColor, textAlignVertical: 'center', textAlign: 'center', fontSize: 20 }}>Buy</Text>
+            </TouchableOpacity>
+        }
+        else {
+            button = <TouchableOpacity style={{ height: 60, backgroundColor: '#fff', justifyContent: 'center', marginTop: 50 }}
+                onPress={() => this.props.navigation.goBack()}>
+                <Icon
+                    name="check"
+                    type="font-awesome"
+                    color={Colors.primary}
+                    size={30}
+                />
+            </TouchableOpacity>
+        }
+
         return (
             <View style={{ marginTop: 10, flex: 1 }}>
                 <View style={{ width: 25, height: 25, marginHorizontal: 10 }}>
@@ -81,10 +101,7 @@ export class CartDetailScreen extends Component {
                     </View>
                 </View>
                 <View style={{ flex: 1 }} />
-                <TouchableOpacity style={{ height: 60, backgroundColor: Colors.primary, justifyContent: 'center', marginTop: 50 }}
-                    onPress={() => this.props.navigation.goBack()}>
-                    <Text style={{ color: Colors.whiteColor, textAlignVertical: 'center', textAlign: 'center', fontSize: 20 }}>Buy</Text>
-                </TouchableOpacity>
+                {button}
             </View>
         )
     }
