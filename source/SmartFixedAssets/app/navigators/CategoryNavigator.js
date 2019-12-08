@@ -6,7 +6,7 @@ import HouseDetailScreen from '../components/HouseDetailScreen';
 import CompareAssertScreen from '../components/CompareAssertScreen';
 import CartDetailScreen from '../components/CartDetailScreen';
 
-export default createStackNavigator(
+const CategoryNavigator = createStackNavigator(
     {
         HomeCategory: HomeScreen,
         CategoryListing: CategoryListingScreen,
@@ -17,3 +17,16 @@ export default createStackNavigator(
     },
     { initialRouteName: 'HomeCategory', defaultNavigationOptions: { header: null } },
 );
+
+CategoryNavigator.navigationOptions = ({ navigation }) => {
+    let tabBarVisible = true;
+    if (navigation.state.index > 0) {
+        tabBarVisible = false;
+    }
+
+    return {
+        tabBarVisible,
+    };
+};
+
+export default CategoryNavigator;

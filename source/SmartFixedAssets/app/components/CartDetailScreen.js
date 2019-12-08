@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity, Text, Button } from 'react-native';
+import { Image, View, TouchableOpacity, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { Colors } from '../styles/DefaultStyles';
 import { getImagePath } from '../utilities/CommonHelper';
@@ -7,7 +7,7 @@ import { getImagePath } from '../utilities/CommonHelper';
 export class CartDetailScreen extends Component {
     constructor(props) {
         super(props);
-        this.state = { data: null };
+        this.state = { data: null, buySuccess: false };
     }
 
     async componentDidMount() {
@@ -16,6 +16,26 @@ export class CartDetailScreen extends Component {
     }
 
     render() {
+
+        let button;
+        if (!this.state.buySuccess) {
+            button = <TouchableOpacity style={{ height: 60, backgroundColor: Colors.primary, justifyContent: 'center', marginTop: 50 }}
+                onPress={() => this.setState({ buySuccess: true })}>
+                <Text style={{ color: Colors.whiteColor, textAlignVertical: 'center', textAlign: 'center', fontSize: 20 }}>Buy</Text>
+            </TouchableOpacity>
+        }
+        else {
+            button = <TouchableOpacity style={{ height: 60, backgroundColor: '#fff', justifyContent: 'center', marginTop: 50 }}
+                onPress={() => this.props.navigation.goBack()}>
+                <Icon
+                    name="check"
+                    type="font-awesome"
+                    color={Colors.primary}
+                    size={30}
+                />
+            </TouchableOpacity>
+        }
+
         return (
             <View style={{ marginTop: 0, marginBottom: 0, flex: 1 }}>
                 <View style={{backgroundColor: '#09C286', paddingVertical: 10, paddingBottom: 20}}>
@@ -73,7 +93,7 @@ export class CartDetailScreen extends Component {
                     </View>
                     <View style={{marginHorizontal: 15}}>
                         <View style={{flexDirection: 'row'}}>
-                            <Text style={{fontSize: 18, textAlign: 'left', marginTop: 5, fontWeight: '700', color: Colors.primary}}>You will pay:</Text>
+                            <Text style={{fontSize: 18, textAlign: 'left', marginTop: 5, fontWeight: '700', color: Colors.primary}}>You Will Pay:</Text>
                             <View style={{flex: 1}}>
                                 <Text style={{fontSize: 30, textAlign: 'right', fontFamily: 'bold'}}>26.98 BTC</Text>
                                 <Text style={{fontSize: 20, textAlign: 'right', opacity: 0.5}}>
@@ -87,7 +107,7 @@ export class CartDetailScreen extends Component {
                 <View>
                     <View style={{marginHorizontal: 15, marginVertical: 10}}>
                         <View style={{flexDirection: 'row'}}>
-                            <Text style={{fontSize: 18, textAlign: 'left', marginTop: 5, fontWeight: '700', color: Colors.primary}}>After balance:</Text>
+                            <Text style={{fontSize: 18, textAlign: 'left', marginTop: 5, fontWeight: '700', color: Colors.primary}}>After Balance:</Text>
                             <View style={{flex: 1}}>
                                 <Text style={{fontSize: 30, textAlign: 'right', fontFamily: 'bold'}}>20.913932 BTC</Text>
                                 <Text style={{fontSize: 20, textAlign: 'right', opacity: 0.5}}>$ 154,806.18</Text>
@@ -96,11 +116,8 @@ export class CartDetailScreen extends Component {
                     </View>
                 </View>
                 <View style={{marginHorizontal: 15, marginVertical: 7, borderBottomColor: Colors.lightGrayColor, borderBottomWidth: 1.5 }}/>
-                <View style={{flex: 1}}/>
-                <TouchableOpacity style={{ height: 60, backgroundColor: Colors.primary, justifyContent: 'center', marginTop: 50, marginBottom: 0 }}
-                    onPress={() => this.props.navigation.goBack()}>
-                    <Text style={{ color: Colors.whiteColor, textAlignVertical: 'center', textAlign: 'center', fontSize: 20 }}>Pay</Text>
-                </TouchableOpacity>
+                <View style={{flex: 1}}/>                
+                {button}
             </View>
         )
     }
