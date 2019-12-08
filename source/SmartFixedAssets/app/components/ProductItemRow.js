@@ -21,6 +21,7 @@ export class ProductItemRow extends Component {
                         borderRadius: 5,
                         height: 90,
                         width: 100,
+                        alignSelf: 'center'
                     }}
                 />
                 <View style={{ flex: 1, marginHorizontal: 20, marginTop: 10 }}>

@@ -44,7 +44,7 @@ export class CategoryListingScreen extends Component {
                     />
                 </TouchableOpacity>
             </View>
-            <Text style={{ fontSize: 30, marginBottom: 5, marginTop: 20 }}>Real Estate</Text>
+            <Text style={{ fontSize: 30, marginBottom: 10, marginTop: 20 }}>Real Estate</Text>
             {this.renderSearchBar()}
         </View>
     }
