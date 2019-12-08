@@ -179,7 +179,7 @@ export class CompareAssertScreen extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.addIcon}>
-          <TouchableOpacity onPress={() => this.doComparison()}>
+          <TouchableOpacity>
             <Icon
               name="filter"
               type="font-awesome"
