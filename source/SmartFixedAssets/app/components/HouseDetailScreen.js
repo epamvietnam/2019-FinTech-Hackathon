@@ -247,12 +247,13 @@ export class HouseDetailScreen extends Component {
             />
           </TouchableOpacity>
         </View>
-        <Overlay width="auto"
+        <Overlay
+          width="auto"
           height="auto"
           isVisible={this.state.showChart}
           windowBackgroundColor="rgba(255, 255, 255, .5)"
-          overlayBackgroundColor="transparent"
-          overlayStyle={{ borderWidth: 0 }}
+          overlayBackgroundColor="#FFFFFF80"
+          overlayStyle={{ padding: 0 }}
           onBackdropPress={() => this.setState({ showChart: false })}>
           <LineChart
             data={chartData}
