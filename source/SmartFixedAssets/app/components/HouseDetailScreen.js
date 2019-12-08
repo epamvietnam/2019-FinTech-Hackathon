@@ -26,6 +26,7 @@ const chartConfig = {
   backgroundGradientFrom: '#022173',
   backgroundGradientTo: '#1b3fa0',
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+  decimalPlaces: 0,
 }
 
 const graphStyle = {
@@ -262,6 +263,8 @@ export class HouseDetailScreen extends Component {
             chartConfig={chartConfig}
             bezier
             style={graphStyle}
+            yAxisLabel={"$"}
+            yAxisSuffix={"k"}
           />
         </Overlay>
       </View >
