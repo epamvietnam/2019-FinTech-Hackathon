@@ -19,10 +19,7 @@ export default createBottomTabNavigator(
         },
         Shop: {
             screen: SettingsScreen,
-        },
-        Profile: {
-            screen: HouseDetailScreen,
-        },
+        }
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({
@@ -42,9 +39,6 @@ export default createBottomTabNavigator(
                         break;
                     case 'Shop':
                         iconName = 'shopping-bag';
-                        break;
-                    case 'Profile':
-                        iconName = 'user';
                         break;
                 }
 
