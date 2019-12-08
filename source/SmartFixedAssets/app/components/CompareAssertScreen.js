@@ -152,8 +152,10 @@ export class CompareAssertScreen extends Component {
             </View>
           )}
         />
+        <Text style={styles.summaryHeader}>
+           Our suggestion:
+        </Text>
         <Text style={styles.summary}>
-           Suggest to you
            "150 Kennedy Road, Wan Chai, Hong Kong"
         </Text>
         <LinearGradient
@@ -291,6 +293,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     marginBottom: 15,
+    marginHorizontal: 15,
+  },
+  summaryHeader: {
+    textAlign: 'center',
+    color: '#6C8EFF',
+    fontSize: 18,
+    fontWeight: '700',
     marginHorizontal: 15,
   },
 });
