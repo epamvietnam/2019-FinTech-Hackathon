@@ -69,14 +69,25 @@ export class CartDetailScreen extends Component {
                         marginHorizontal: 10
                     }}>
                     <View style={{ flex: 1, marginHorizontal: 20, marginTop: 10 }}>
-                        <Text style={{ fontSize: 13, fontWeight: 'bold' }}>
-                            Your wallet:
-                        </Text>
+                        <View style={{flexDirection:'row'}}>
+                            <Text style={{ fontSize: 13, fontWeight: 'bold' }}>
+                                Your wallet:
+                            </Text>
+                            <Icon
+                                name="bitcoin"
+                                type="font-awesome"
+                                color={Colors.disable}
+                                size={25}
+                            />
+                            <Text style={{ fontSize: 13, fontWeight: 'bold' }}>
+                                40
+                            </Text>
+                        </View>                        
                         <Text style={{ fontSize: 15, color: Colors.disable, marginVertical: 5 }}>
-                            Exchange Rate:
+                            Exchange Rate: 1 Bitcoin = $7,438
                         </Text>
                         <Text style={{ fontSize: 25, color: Colors.primary }}>
-                            Price:
+                            You pay: 27 Bitcoins
                         </Text>
                     </View>
                 </View>
