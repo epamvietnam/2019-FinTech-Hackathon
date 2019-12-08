@@ -144,9 +144,8 @@ export class HomeScreen extends Component {
                             </View>
                         </View>
                     </View>
-                    <Category categoryName="Popular Trending" />
-                    <Category categoryName="Featured Ads" />
                     <Category categoryName="Top Rating" />
+                    <Category categoryName="Bidding" />
                 </View>
             </ScrollView>
         );

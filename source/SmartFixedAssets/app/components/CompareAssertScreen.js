@@ -16,26 +16,24 @@ const DATA = [
   {
     id: 1,
     index: 0,
-    title: 'House 1',
-    address: '150 Kennedy Road, Wan Chai, Hong Kong',
-    image: require('../assets/House1.jpg'),
-    Price: ['$250000', 4],
-    NoOfBedroom: ['3 Bedroom', 3],
-    NoOfToilet: ['2 Toilets', 2],
-    NearIndustry: ['12 miles from industry', 3],
-    NearSchool: ['2 miles from school', 5],
+    address: '31 Kwai Fung Crescent, Kwai Chung, Hong Kong',
+    image: require('../assets/House3.jpg'),
+    Price: ['$186000', 4],
+    NoOfBedroom: ['2 Bedroom', 3],
+    NoOfToilet: ['1 Bathroom', 2],
+    NearIndustry: ['3 miles from industry', 3],
+    NearSchool: ['5 miles from school', 2],
   },
   {
     id: 2,
     index: 1,
-    title: 'House 2',
     address: '190 Tai Lin Pai Road, Kwai Chung, Hong Kong',
     image: require('../assets/House2.jpg'),
-    Price: ['$150000', 3],
-    NoOfBedroom: ['1 Bedroom', 2],
-    NoOfToilet: ['1 Toilets', 2],
-    NearIndustry: ['3 miles from industry', 1],
-    NearSchool: ['12 miles from school', 1],
+    Price: ['$200000', 4],
+    NoOfBedroom: ['3 Bedroom', 5],
+    NoOfToilet: ['3 Bathroom', 4],
+    NearIndustry: ['5 miles from industry', 3],
+    NearSchool: ['1 miles from school', 5],
   },
 ];
 
@@ -95,7 +93,7 @@ export class CompareAssertScreen extends Component {
                 />
                 <Text style={styles.content}>{item.NoOfBedroom[0]}</Text>
               </View>
-              <Text style={styles.header}>{item.index == 0 ? 'No. of Toilet' : ''}</Text>
+              <Text style={styles.header}>{item.index == 0 ? 'No. of Bathroom' : ''}</Text>
               <View style={styles.contentView}>
                 <LinearGradient
                   colors={['white', '#FFB775']}
@@ -156,7 +154,7 @@ export class CompareAssertScreen extends Component {
            Our suggestion:
         </Text>
         <Text style={styles.summary}>
-           "150 Kennedy Road, Wan Chai, Hong Kong"
+           "190 Tai Lin Pai Road, Kwai Chung, Hong Kong"
         </Text>
         <LinearGradient
           colors={['transparent', 'white']}
