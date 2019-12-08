@@ -8,19 +8,27 @@ import { getAllProperties } from '../services/DataService';
 export class CategoryListingScreen extends Component {
     onAdvanceSearchPress = () => {
         console.log('AdvanceSearch');
-        this.props.navigation.navigate('AdvanceSearch');
+        this.props.navigation.navigate('AdvanceSearch', {
+            receivedSearchResult: this.receivedSearchResult
+        });
     };
 
     constructor(props) {
         super(props);
-        this.state = { data: null };
+        this.state = { 
+            data: null,
+            originalData: null,
+        };
     }
 
     async componentDidMount() {
         let result = await getAllProperties();
         console.log(result);
         this.setState((
-            { data: result }
+            { 
+                data: result,
+                originalData: result,
+            }
         ));
     }
 
@@ -99,6 +107,24 @@ export class CategoryListingScreen extends Component {
             />
         )
     }
+
+    receivedSearchResult = (filter) => {
+        console.log(filter);
+        console.log('receivedSearchResult');
+        this.setState({data: this.filterList(this.state.data, filter)});
+    }
+
+    filterList = (list, filter) => {
+        let filteredList = this.state.originalData;
+        console.log('filtering: ', filter);
+        if(filter !== null && filteredList !== null && filter.nearSchool === true)
+        {
+            filteredList = list.filter(
+                item => item.id === 2 || item.id === 3
+            )
+        }
+        return filteredList;
+      };
 }
 
 export default CategoryListingScreen;

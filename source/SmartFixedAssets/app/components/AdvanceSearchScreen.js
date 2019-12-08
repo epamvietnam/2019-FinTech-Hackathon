@@ -5,7 +5,7 @@ import { Colors } from '../styles/DefaultStyles';
 
 const bedrooms = ['Any', '1', '2', '3', '4', '5+'];
 const bathrooms = ['Any', '1', '2', '3', '4', '5+'];
-const priceRange = ['Any', '$500,000 - $750,000', '$750,000 - $1M', '$1M+'];
+const priceRange = ['Any', 'Under $200,000', '$200,000-$400,000', '$400,000+'];
 
 export class AdvanceSearchScreen extends Component {
     state = {
@@ -107,7 +107,7 @@ export class AdvanceSearchScreen extends Component {
                         {this.setState({bathroom: item})}
                     )}
                     <View style={{marginVertical: 7}}>
-                        <Text style={{flex: 1.5, textAlignVertical: 'center', marginVertical: 7}}>Utilities</Text>
+                        <Text style={{flex: 1.5, textAlignVertical: 'center', marginVertical: 7}}>Options</Text>
                         <View style={{flexDirection: 'row', flex: 1}}>
                             <View style={{flexDirection: 'row', flex: 1}}>
                                 <CheckBox value={this.state.nearSchool}
@@ -132,12 +132,18 @@ export class AdvanceSearchScreen extends Component {
                 </View>
             </ScrollView>
             <TouchableHighlight style={{height: 60, backgroundColor: Colors.primary, justifyContent: 'center'}}
-                                onPress={() => this.props.navigation.goBack()}>
+                                onPress={this.onSearchPress}>
                 <Text style={{color: Colors.whiteColor, textAlignVertical: 'center', textAlign: 'center', fontSize: 20}}>Search</Text>
             </TouchableHighlight>
             </View>
         );
     };
+
+    onSearchPress = () => {
+        const receivedSearchResult = this.props.navigation.getParam('receivedSearchResult', () => {});
+        receivedSearchResult(this.state);
+        this.props.navigation.goBack();
+    }
 }
 
 const styles = StyleSheet.create({
